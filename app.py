@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys, os, subprocess, re
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QVBoxLayout,
                              QWidget, QFileDialog, QTableWidget, QTableWidgetItem,
@@ -148,5 +150,20 @@ class SoundNormalizerUltra(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    win = SoundNormalizerUltra(); win.show()
+
+    # Identidad de la aplicación para el sistema
+    app.setApplicationName("sound-normalizer-ultra")
+
+    if sys.platform == 'linux':
+        # Sin el .desktop, como pide la advertencia de Qt
+        app.setDesktopFileName("sound-normalizer-ultra")
+
+    win = SoundNormalizerUltra()
+    win.show()
     sys.exit(app.exec())
+
+
+          
+    
+  
+       
