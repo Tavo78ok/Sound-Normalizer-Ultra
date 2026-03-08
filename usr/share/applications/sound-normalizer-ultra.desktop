@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Sound Normalizer Ultra
+# Si el ejecutable está en /usr/bin, dejalo así:
+Exec=sound-normalizer-ultra
+# Poné la ruta completa al PNG para probar:
+Icon=/usr/share/pixmaps/sound-normalizer-ultra.png
+Terminal=false
+Categories=AudioVideo;Audio;
+StartupWMClass=sound-normalizer-ultra
