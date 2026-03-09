@@ -24,10 +24,14 @@ A diferencia de la normalización de picos tradicional que solo evita que el aud
    sudo apt install -f
 
 🛠 Requisitos:
-.FFmpeg 
-.Python3
-.Python3-pyqt6
-.Python3-mutagen
+
+-FFmpeg
+
+-Python3
+
+-Python3-pyqt6
+
+-Python3-mutagen
 
 <img width="1440" height="900" alt="Captura de pantalla_2026-03-09_03-45-20" src="https://github.com/user-attachments/assets/0328255e-9960-49b2-8d91-98623355bb33" />
 
