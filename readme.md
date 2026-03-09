@@ -28,3 +28,5 @@ FFmpeg instalado en el sistema.
 
 <img width="1440" height="900" alt="Captura de pantalla_2026-03-09_03-45-20" src="https://github.com/user-attachments/assets/0328255e-9960-49b2-8d91-98623355bb33" />
 
+<img width="1440" height="900" alt="Captura de pantalla_2026-03-09_03-49-55" src="https://github.com/user-attachments/assets/bcd68ab4-9757-46ee-9dbb-cdbc0ccc0354" />
+
