@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import sys, os, subprocess, re
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QVBoxLayout,
                              QWidget, QFileDialog, QTableWidget, QTableWidgetItem,
@@ -34,19 +33,21 @@ class ProcessWorker(QThread):
             match = re.search(r"mean_volume: ([\-\d\.]+) dB", res.stderr)
             vol_info = f"{match.group(1)} dB" if match else "?? dB"
 
-            # Normalización
+            # Normalización con Bitrate de 192k y Audio a 48kHz
             self.progress.emit(i, 60, "Normalizando...")
-            cmd = f'ffmpeg -i "{fin}" -filter:a "loudnorm=i={self.target_db}" "{fout}" -y'
+            # Agregamos -b:a 192k para la calidad y -ar 48000 para la frecuencia
+            cmd = f'ffmpeg -i "{fin}" -filter:a "loudnorm=i={self.target_db}" -b:a 192k -ar 48000 "{fout}" -y'
             proc = subprocess.run(cmd, shell=True, capture_output=True)
 
             if proc.returncode == 0:
-                # Si el usuario seleccionó una carátula, la incrustamos
                 if self.cover_path and os.path.exists(self.cover_path):
                     self.embed_custom_cover(fout)
+                # Notificación de éxito
                 self.progress.emit(i, 100, f"Listo ({vol_info} -> {self.target_db} LUFS) ✅")
             else:
                 self.progress.emit(i, 0, "Error ❌")
 
+        # Esta es la señal que avisa que TODO el lote terminó
         self.finished_batch.emit()
 
     def embed_custom_cover(self, audio_path):
@@ -141,7 +142,15 @@ class SoundNormalizerUltra(QMainWindow):
         if not self.queue: return
         self.worker = ProcessWorker(self.queue, self.slider.value(), self.selected_cover)
         self.worker.progress.connect(self.update_ui)
+
+        # AGREGÁ ESTA LÍNEA:
+        self.worker.finished_batch.connect(self.alert_finished)
+
         self.worker.start()
+
+    # Y AGREGÁ ESTA FUNCIÓN:
+    def alert_finished(self):
+        QMessageBox.information(self, "Proceso Completado", "¡Todos los archivos han sido normalizados a 192kbps!")
 
     def update_ui(self, index, pct, status):
         bar = self.table.cellWidget(index, 1)
@@ -161,4 +170,6 @@ if __name__ == "__main__":
     win = SoundNormalizerUltra()
     win.show()
     sys.exit(app.exec())
+
+
 
