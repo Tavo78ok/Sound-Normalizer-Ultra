@@ -26,6 +26,5 @@ A diferencia de la normalización de picos tradicional que solo evita que el aud
 🛠 Requisitos:
 FFmpeg instalado en el sistema.
 
-<img width="1440" height="900" alt="Captura de pantalla_2026-03-07_21-20-40" src="https://github.com/user-attachments/assets/f1fb6aed-65a4-4549-8d67-377b501921fa" />
-
+<img width="1440" height="900" alt="Captura de pantalla_2026-03-09_03-45-20" src="https://github.com/user-attachments/assets/0328255e-9960-49b2-8d91-98623355bb33" />
 
