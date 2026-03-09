@@ -1,5 +1,7 @@
 ## 🎧 Sound Normalizer Ultra v1.0.0
 
+![file_0000000050c471f59974b773962d5b8f~2](https://github.com/user-attachments/assets/56154010-ff2a-45b8-ba21-da8a214a5ab8)
+
 Una herramienta potente y ligera diseñada para entusiastas del audio que buscan el volumen perfecto sin sacrificar la dinámica.
 
 🚀 Características Principales:
